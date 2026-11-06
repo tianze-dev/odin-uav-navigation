@@ -1,4 +1,3 @@
-# 基于旧 decision_process 项目配置；当前使用 clang-format 18。
 BasedOnStyle: Google
 Language: Cpp
 Standard: c++17
