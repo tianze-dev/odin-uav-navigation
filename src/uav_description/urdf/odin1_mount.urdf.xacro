@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="x500_odin1_mount">
+  <xacro:include filename="$(find odin_simulation_gz)/urdf/odin.xacro"/>
+  <!-- Dummy parent is omitted when composing the real X500 SDF. -->
+  <link name="base_link">
+    <inertial><mass value="1"/><inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/></inertial>
+  </link>
+  <!-- Simulation mounting: centre the sensor mass under the body, looking
+       30 degrees forward/down. Positive pitch points +X toward -Z in FLU.
+       The case remains above the landing skids. Measure real extrinsics separately. -->
+  <xacro:odin_sensor parent="base_link" name="odin1" frame_prefix="odin1_"
+                     xyz="-0.03 0 -0.14" rpy="0 ${pi/6} 0"/>
+  <gazebo reference="odin1_odin_mount"><preserveFixedJoint>true</preserveFixedJoint></gazebo>
+</robot>

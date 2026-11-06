@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from uav_px4_bridge.traj_server import main
+if __name__ == "__main__": main()

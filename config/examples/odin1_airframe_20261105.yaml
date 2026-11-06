@@ -1,0 +1,42 @@
+# Recorded example installation; valid only for the documented airframe.
+uav_state_adapter:
+  ros__parameters:
+    mode: real
+    sensor: odin1
+    odom_topic: /odin1/odometry_highfreq
+    cloud_topic: /odin1/cloud_slam
+    source_frame: odom
+    source_child: odin1_base_link
+    cloud_in_world: true
+    body_filter_radius: 0.5
+    calibrated: true
+    require_cloud_for_odometry: true
+    record_localization_faults: true
+    odom_timeout: 0.25
+    cloud_timeout: 0.5
+    cloud_wait_timeout: 0.2
+    world_quaternion:
+    - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+    sensor_translation:
+    - -0.07494053180840556
+    - 0.05712219797694855
+    - -0.057647744059274544
+    sensor_quaternion:
+    - 0.00030893421396142477
+    - 0.08495986210682299
+    - -0.0003340916709058535
+    - 0.9963842706371858
+    odom_sensor_translation:
+    - 0.0
+    - 0.0
+    - -0.1
+    odom_sensor_quaternion:
+    - 0.0
+    - 0.08715574274765817
+    - 0.0
+    - 0.9961946980917455
+    velocity_world: true
+    cloud_frame: odom

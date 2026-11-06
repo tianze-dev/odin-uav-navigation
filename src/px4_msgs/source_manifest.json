@@ -1,0 +1,19 @@
+{
+  "profile": "real",
+  "url": "https://github.com/PX4/px4_msgs.git",
+  "commit": "a1045ec4feb6d709bdecaf3895f1d5b43a5dabb8",
+  "messages": {
+    "FailsafeFlags": "cb305f6fc653da55c58689febff31222f0bde226eda58cff2517df355d95e9de",
+    "EstimatorStatusFlags": "754dceda18a626ba18edb1d03d295ef61afa0acb27fde714f96f15619c5aa79b",
+    "TimesyncStatus": "244e915343f678a7a9895002d2f36983bfd4494a2a9167db70b01e2dc5a5566c",
+    "TrajectorySetpoint": "a9ed19116a311b89d41e8cd3e6fc49951ec23824126a102dd41d6f6b9e7b3cb6",
+    "OffboardControlMode": "8bd6fa373300e5bd35ade9d34ba0e1f470b880bf5d5b2f5c9316957bbe2a40e7",
+    "VehicleCommand": "412067d07c486bd87393be00158ef863176a4c86ff7b34e2c4a3e099ad80d539",
+    "VehicleCommandAck": "d1a2b5b89c38823841190fe5f7191681b03b032682a4f30063830352d320cac9",
+    "VehicleLandDetected": "408d281da77f6f560da4b4dfba6cf63b1f1190af1250fa6892b8acb0c1bc1925",
+    "VehicleStatus": "a8b00a7758aa20e6bb6c015c1aef869e063fdb0a5beb79a43679c67cf8bb5995",
+    "VehicleLocalPosition": "24d2dec48f4ad0e4075c0f43a46e71caba6d4cf5a4a6f09e8bb6ba75d93da18c",
+    "VehicleAttitude": "0163914e35dfc58ff3081e0bb9d5f2c96ddbd4e9bcc1ab204edb386ee5419f7c",
+    "VehicleOdometry": "f793b3b28c5ad65f9cf485b24816ba81de1fcaf9d5de903ffd75183930f95778"
+  }
+}

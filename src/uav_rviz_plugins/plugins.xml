@@ -1,0 +1,8 @@
+<library path="uav_navigation_panel">
+  <class name="uav_rviz_plugins/NavigationPanel" type="uav_rviz_plugins::NavigationPanel" base_class_type="rviz_common::Panel">
+    <description>SCUT UAV navigation, planning preview and explicit SITL pilot controls.</description>
+  </class>
+  <class name="uav_rviz_plugins/GoalPlaneTool" type="uav_rviz_plugins::GoalPlaneTool" base_class_type="rviz_common::Tool">
+    <description>Choose navigation goals on the configured height plane, including empty space outside the local map.</description>
+  </class>
+</library>

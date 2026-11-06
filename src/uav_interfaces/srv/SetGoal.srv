@@ -1,0 +1,6 @@
+# goal 使用 odom 坐标系；preview 只生成/校验局部候选，不发布执行轨迹。
+geometry_msgs/Point goal
+bool preview
+---
+bool success
+string message

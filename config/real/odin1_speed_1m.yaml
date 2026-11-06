@@ -1,0 +1,19 @@
+# Odin baseline: speed overrides only; retain Odin geometry and follow yaw.
+# 显式选择 speed_profile:=baseline 后叠加；只覆盖速度和规划距离。
+# 与仿真 baseline 相同的 1 m/s、1 m/s²、3 m/s³ 执行包络。
+ego_planner_node:
+  ros__parameters:
+    manager/max_vel: 0.9
+    manager/max_acc: 0.9
+    manager/planning_horizon: 5.0
+    optimization/max_vel: 0.9
+    optimization/max_acc: 0.9
+    optimization/max_jer: 2.7
+    execution/max_vel: 1.0
+    execution/max_acc: 1.0
+    execution/max_jer: 3.0
+traj_server:
+  ros__parameters:
+    execution/max_vel: 1.0
+    execution/max_acc: 1.0
+    execution/max_jer: 3.0

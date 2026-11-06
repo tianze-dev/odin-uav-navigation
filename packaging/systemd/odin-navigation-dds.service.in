@@ -1,0 +1,18 @@
+[Unit]
+Description=PX4 serial Micro XRCE-DDS Agent for Odin navigation
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+
+[Service]
+Type=simple
+User=@USER@
+Environment=SCUT_ROS_DOMAIN_ID=0
+Environment=PX4_SERIAL_DEV=/dev/px4_fcu
+Environment=PX4_SERIAL_BAUD=921600
+WorkingDirectory=@PROJECT_ROOT@
+ExecStart=/bin/bash "@PROJECT_ROOT@/scripts/run_dds_agent.sh"
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,41 @@
+# 工程文本规则；第三方代码、生成产物和模型资源保留自身格式。
+root = true
+
+[*.{c,cc,cpp,h,hh,hpp,py,sh,bash,cmake,yaml,yml,json,xml,xacro,sdf,msg,srv,md,html,css,js,toml,ini,rviz}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[CMakeLists.txt]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[*.md]
+# Markdown 的行尾双空格可能表示显式换行。
+trim_trailing_whitespace = false
+
+[{third_party,.deps,build,install,generated,log,run,simulation}/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
+
+[simulation/odin_simulation_gz/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset

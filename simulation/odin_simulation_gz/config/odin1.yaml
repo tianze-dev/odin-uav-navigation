@@ -1,0 +1,13 @@
+depth_width: 256
+depth_height: 192
+depth_hfov: 120.0
+depth_vfov: 90.0
+depth_rate: 10.0
+range_min: 0.2
+range_max: 70.0
+rgb_width: 1600
+rgb_height: 1296
+rgb_hfov: 129.0
+rgb_vfov: 104.0
+rgb_rate: 10.0
+imu_rate: 400.0

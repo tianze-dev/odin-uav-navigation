@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Namespaced Gazebo topics are private. The ROS adapter defines the public ABI. -->
+  <xacro:macro name="odin_sensor" params="parent name:='odin1' frame_prefix:='' xyz:='0 0 0' rpy:='0 0 0' depth_xyz:='0.04 0 0.031' imu_xyz:='0 0 0' imu_rpy:='0 0 0' camera_xyz:='0 0 0' camera_rpy:='0 0 0' config_file:='$(find odin_simulation_gz)/config/odin1.yaml'">
+    <xacro:property name="c" value="${xacro.load_yaml(config_file)}"/>
+    <xacro:property name="p" value="${frame_prefix}"/>
+    <link name="${p}odin_link">
+      <inertial><origin xyz="0.0168 0 0.031"/><mass value="0.28"/><inertia ixx="0.0003230" iyy="0.0001400" izz="0.0002836" ixy="0" ixz="0" iyz="0"/></inertial>
+      <collision><origin xyz="0.0168 0 0.031"/><geometry><box size="0.0464 0.1 0.062"/></geometry></collision>
+    </link>
+    <joint name="${p}odin_mount" type="fixed"><parent link="${parent}"/><child link="${p}odin_link"/><origin xyz="${xyz}" rpy="${rpy}"/></joint>
+    <link name="${p}lidar">
+      <inertial><mass value="0.000001"/><inertia ixx="1e-9" iyy="1e-9" izz="1e-9" ixy="0" ixz="0" iyz="0"/></inertial>
+      <visual><origin xyz="${-float(depth_xyz.split()[0])} ${-float(depth_xyz.split()[1])} ${-float(depth_xyz.split()[2])}"/><geometry><mesh filename="package://odin_simulation_gz/meshes/odin1/odin1.dae"/></geometry></visual>
+    </link>
+    <joint name="${p}lidar_joint" type="fixed"><parent link="${p}odin_link"/><child link="${p}lidar"/><origin xyz="${depth_xyz}"/></joint>
+    <gazebo reference="${p}lidar_joint"><preserveFixedJoint>true</preserveFixedJoint></gazebo>
+    <link name="${p}imu"><inertial><mass value="0.000001"/><inertia ixx="1e-9" iyy="1e-9" izz="1e-9" ixy="0" ixz="0" iyz="0"/></inertial></link>
+    <joint name="${p}imu_joint" type="fixed"><parent link="${p}lidar"/><child link="${p}imu"/><origin xyz="${imu_xyz}" rpy="${imu_rpy}"/></joint>
+    <gazebo reference="${p}imu_joint"><preserveFixedJoint>true</preserveFixedJoint></gazebo>
+    <link name="${p}camera_link"><inertial><mass value="0.000001"/><inertia ixx="1e-9" iyy="1e-9" izz="1e-9" ixy="0" ixz="0" iyz="0"/></inertial></link>
+    <joint name="${p}camera_joint" type="fixed"><parent link="${p}lidar"/><child link="${p}camera_link"/><origin xyz="${camera_xyz}" rpy="${camera_rpy}"/></joint>
+    <gazebo reference="${p}camera_joint"><preserveFixedJoint>true</preserveFixedJoint></gazebo>
+    <link name="${p}camera_0"/>
+    <joint name="${p}camera_optical_joint" type="fixed"><parent link="${p}camera_link"/><child link="${p}camera_0"/><origin rpy="${-pi/2} 0 ${-pi/2}"/></joint>
+    <gazebo reference="${p}lidar">
+      <sensor name="${name}_depth" type="custom">
+        <always_on>true</always_on><update_rate>${c['depth_rate']}</update_rate>
+        <plugin filename="OdinRGLDepthSensor" name="odin_sim::DepthSensor">
+          <width>${c['depth_width']}</width><height>${c['depth_height']}</height>
+          <horizontal_fov>${c['depth_hfov']*pi/180}</horizontal_fov><vertical_fov>${c['depth_vfov']*pi/180}</vertical_fov>
+          <range_min>${c['range_min']}</range_min><range_max>${c['range_max']}</range_max>
+          <update_rate>${c['depth_rate']}</update_rate><frame>${p}lidar</frame><topic>/odin_sim/${name}/depth</topic>
+        </plugin>
+      </sensor>
+    </gazebo>
+    <gazebo reference="${p}camera_link">
+      <sensor name="${name}_rgb" type="camera">
+        <always_on>true</always_on><update_rate>${c['rgb_rate']}</update_rate><topic>/odin_sim/${name}/image</topic>
+        <camera>
+          <horizontal_fov>${c['rgb_hfov']*pi/180}</horizontal_fov>
+          <image><width>${c['rgb_width']}</width><height>${c['rgb_height']}</height><format>R8G8B8</format></image>
+          <clip><near>0.05</near><far>100</far></clip>
+          <lens><intrinsics>
+            <fx>${c['rgb_width']/(2*tan(c['rgb_hfov']*pi/360))}</fx><fy>${c['rgb_height']/(2*tan(c['rgb_vfov']*pi/360))}</fy>
+            <cx>${(c['rgb_width']-1)/2}</cx><cy>${(c['rgb_height']-1)/2}</cy><s>0</s>
+          </intrinsics></lens>
+        </camera>
+      </sensor>
+    </gazebo>
+    <!-- Physics-step sampling; adapter selects exact public IMU sample times. -->
+    <gazebo reference="${p}imu"><sensor name="${name}_imu" type="imu"><always_on>true</always_on><update_rate>0</update_rate><topic>/odin_sim/${name}/imu</topic><imu/></sensor></gazebo>
+  </xacro:macro>
+</robot>

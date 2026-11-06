@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.16)
+project(uav_interfaces)
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/NavigationHealth.msg"
+  "msg/NavigationStatus.msg"
+  "msg/PlanSafety.msg"
+  "msg/TrajectoryExecution.msg"
+  "srv/SetGoal.srv"
+  "srv/PilotCommand.srv"
+  DEPENDENCIES std_msgs geometry_msgs nav_msgs sensor_msgs builtin_interfaces)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()

@@ -1,0 +1,15 @@
+<package format="3">
+  <name>path_searching</name>
+  <version>0.1.0</version>
+  <description>SCUT RoboMaster UAV path_searching</description>
+  <maintainer email="uav@scut.example">SCUT UAV</maintainer>
+  <license>GPL-3.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>plan_env</depend>
+  <depend>pcl_conversions</depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+  <depend>eigen</depend>
+</package>

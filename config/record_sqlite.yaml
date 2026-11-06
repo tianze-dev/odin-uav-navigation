@@ -1,0 +1,4 @@
+# Flight evidence: prefer durability over SQLite's default throughput settings.
+# FULL syncs each committed WAL transaction; the rosbag memory cache is separate.
+write:
+  pragmas: ["journal_mode = WAL", "synchronous = FULL"]

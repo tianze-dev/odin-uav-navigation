@@ -1,0 +1,13 @@
+<package format="3">
+  <name>uav_description</name>
+  <version>0.1.0</version>
+  <description>SCUT RoboMaster UAV uav_description</description>
+  <maintainer email="uav@scut.example">SCUT UAV</maintainer>
+  <license>GPL-3.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>xacro</depend>
+  <!-- 只展开选定传感器的 xacro；不强制安装另一个后端。 -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

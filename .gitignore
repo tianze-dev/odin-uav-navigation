@@ -1,0 +1,10 @@
+/build/
+/install/
+/log/
+/generated/
+/run/
+/.deps/
+/dependencies/local.json
+**/__pycache__/
+*.pyc
+/simulation/odin_simulation_gz/.deps/

@@ -1,0 +1,24 @@
+<package format="3">
+  <name>ego_planner</name>
+  <version>0.1.0</version>
+  <description>SCUT single-UAV EGO planning and task state machine</description>
+  <maintainer email="uav@scut.example">SCUT UAV</maintainer>
+  <license>GPL-3.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+  <depend>rclcpp</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>uav_interfaces</depend>
+  <depend>quadrotor_msgs</depend>
+  <depend>plan_env</depend>
+  <depend>path_searching</depend>
+  <depend>traj_opt</depend>
+  <depend>traj_utils</depend>
+  <depend>visualization_msgs</depend>
+  <depend>eigen</depend>
+</package>

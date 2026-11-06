@@ -1,0 +1,182 @@
+Panels:
+- Class: uav_rviz_plugins/NavigationPanel
+  Name: SCUT Navigation
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: odom
+    Frame Rate: 30
+    Background Color: 22; 29; 40
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Odin scan (odom)
+    Enabled: true
+    Topic:
+      Value: /navigation/cloud
+      Reliability Policy: Reliable
+      Durability Policy: Volatile
+      History Policy: Keep Last
+      Depth: 5
+    Size (m): 0.04
+    Style: Points
+    Size (Pixels): 2
+    Color Transformer: AxisColor
+    Axis: Z
+    Decay Time: 0.6
+    Use Fixed Frame: true
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Inflated obstacles
+    Enabled: true
+    Topic:
+      Value: /grid_map/occupancy_inflate
+      Reliability Policy: Reliable
+    Size (m): 0.15
+    Color Transformer: FlatColor
+    Color: 240; 160; 50
+    Alpha: 1.0
+    Style: Boxes
+    Decay Time: 0.0
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Occupied voxels (cyan, solid)
+    Enabled: true
+    Topic:
+      Value: /grid_map/occupancy
+      Reliability Policy: Reliable
+    Style: Boxes
+    Size (m): 0.15
+    Color Transformer: FlatColor
+    Color: 80; 220; 240
+    Decay Time: 0.0
+    Alpha: 1.0
+  - Class: rviz_default_plugins/Marker
+    Name: Local map window
+    Enabled: true
+    Topic:
+      Value: /grid_map/bounds
+      Reliability Policy: Reliable
+  - Class: rviz_default_plugins/RobotModel
+    Name: X500 + sensor
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /robot_description
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+    Visual Enabled: true
+    Collision Enabled: false
+    Alpha: 1.0
+  - Class: rviz_default_plugins/Marker
+    Name: Global reference
+    Enabled: false
+    Topic:
+      Value: /planning/global_list
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: A star search
+    Enabled: true
+    Topic:
+      Value: /planning/a_star_list
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: Initial trajectory
+    Enabled: true
+    Topic:
+      Value: /planning/init_list
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: Optimized candidate
+    Enabled: true
+    Topic:
+      Value: /planning/optimal_list
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: Accepted trajectory
+    Enabled: true
+    Topic:
+      Value: /planning/accepted
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: Active goal
+    Enabled: true
+    Topic:
+      Value: /planning/goal_point
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/Marker
+    Name: Failed candidate
+    Enabled: false
+    Topic:
+      Value: /planning/failed_list
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 20
+  - Class: rviz_default_plugins/MarkerArray
+    Name: Targets + flight status
+    Enabled: true
+    Topic:
+      Value: /navigation/state_markers
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      Depth: 1
+  - Class: rviz_default_plugins/Path
+    Name: Actual flight path
+    Enabled: true
+    Topic:
+      Value: /navigation/flight_path
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      Depth: 1
+    Line Style: Billboards
+    Line Width: 0.02
+    Color: 70; 220; 90
+    Alpha: 1.0
+    Buffer Length: 1
+    Pose Style: None
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/SetGoal
+    Topic: /navigation/rviz_goal
+  - Class: uav_rviz_plugins/GoalPlaneTool
+    Height: 2.5
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 17.0
+      Pitch: 0.75
+      Yaw: 0.85
+      Focal Point:
+        X: 2.0
+        Y: 0.0
+        Z: 1.0
+      Near Clip Distance: 0.01
+      Name: Navigation overview
+      Target Frame: odom
+Window Geometry:
+  Width: 1800
+  Height: 1000

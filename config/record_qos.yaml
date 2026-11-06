@@ -1,0 +1,111 @@
+# Capture retained planning markers/status and best-effort sensor streams.
+/navigation/localization_fault:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/tf_static:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/navigation/status:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/navigation/staged_goals:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/navigation/flight_path:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/navigation/state_markers:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/diagnostics:
+  history: keep_last
+  depth: 100
+  reliability: reliable
+  durability: transient_local
+/planning/goal_point:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/global_list:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/init_list:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/optimal_list:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/a_star_list:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/failed_list:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/planning/accepted:
+  history: keep_last
+  depth: 20
+  reliability: reliable
+  durability: transient_local
+/odin1/cloud_raw:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/odin1/cloud_slam:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/odin1/odometry_highfreq:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/odin1/odometry:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/odin1/imu:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/navigation/cloud:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/grid_map/occupancy:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile
+/grid_map/occupancy_inflate:
+  history: keep_last
+  depth: 5
+  reliability: best_effort
+  durability: volatile

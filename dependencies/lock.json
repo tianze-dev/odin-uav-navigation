@@ -1,0 +1,26 @@
+{
+  "px4_real_msgs": {
+    "url": "https://github.com/PX4/px4_msgs.git",
+    "commit": "a1045ec4feb6d709bdecaf3895f1d5b43a5dabb8",
+    "reference": "PX4 1.15 message definitions; verify against the installed flight firmware"
+  },
+  "ego_main": {
+    "commit": "9d85475ea7b9bf5c112cf7c3c3d0d3f9e96d9010",
+    "url": "https://github.com/ZJU-FAST-Lab/EGO-Planner-v2.git",
+    "path": "swarm-playground/main_ws/src/planner"
+  },
+  "ros2_reference": {
+    "url": "https://github.com/limshoonkit/ego-planner-v2-ros2",
+    "commit": "39c32c700a1d353af3a22d3fbfdd64e297485c91"
+  },
+  "xrce_agent": {
+    "url": "https://github.com/eProsima/Micro-XRCE-DDS-Agent.git",
+    "ref": "v2.4.2"
+  },
+  "ros": "humble",
+  "os": "Ubuntu 22.04",
+  "px4_simulation": {
+    "url": "https://github.com/PX4/PX4-Autopilot.git",
+    "commit": "1403709f658724e7938ea1a1eb2dc561b5f7a25e"
+  }
+}

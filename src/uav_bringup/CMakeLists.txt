@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(uav_bringup)
+find_package(ament_cmake REQUIRED)
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY ../../config/ DESTINATION share/${PROJECT_NAME}/config)
+install(DIRECTORY ../../scripts/lib/ DESTINATION share/${PROJECT_NAME}/runtime FILES_MATCHING PATTERN "*.py")
+ament_package()

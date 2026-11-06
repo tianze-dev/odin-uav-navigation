@@ -1,0 +1,11 @@
+<package format="3">
+  <name>uav_bringup</name><version>0.1.0</version>
+  <description>Odin1 native localization and PX4 real navigation bringup.</description>
+  <maintainer email="uav@scut.example">SCUT UAV</maintainer><license>GPL-3.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>launch_ros</exec_depend><exec_depend>ament_index_python</exec_depend>
+  <exec_depend>python3-yaml</exec_depend><exec_depend>rviz2</exec_depend>
+  <exec_depend>uav_state_adapter</exec_depend><exec_depend>uav_px4_bridge</exec_depend>
+  <exec_depend>ego_planner</exec_depend><exec_depend>uav_rviz_plugins</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
