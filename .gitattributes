@@ -3,3 +3,5 @@ src/px4_msgs/msg/*.msg -text whitespace=-blank-at-eol,-blank-at-eof
 *.jpg binary
 *.png binary
 *.dae -text
+
+*.pdf binary

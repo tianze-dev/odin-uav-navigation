@@ -86,6 +86,9 @@ def setup(context):
         PX4_UXRCE_DDS_NS="scut",
         PX4_UXRCE_DDS_PORT=str(port),
         PX4_GZ_MODEL_POSE="0,0,0.2,0,0,0",
+        LD_LIBRARY_PATH=os.pathsep.join(
+            [str(plugin), env.get("LD_LIBRARY_PATH", "")]
+        ),
         GZ_SIM_RESOURCE_PATH=os.pathsep.join(
             [
                 str(root / "generated/models"),
