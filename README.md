@@ -8,8 +8,10 @@
 
 | 仿真飞行测试 | 实机飞行测试 |
 | :---: | :---: |
-| 视频待提供 | 视频待提供 |
-| Gazebo 环境、局部地图与规划轨迹 | 真实场地、外部视角与导航画面 |
+| [![仿真飞行测试](assets/simulation-preview.png)](assets/simulation-flight.mp4) | 视频待提供 |
+| [播放仿真测试视频 · 约 91 秒](assets/simulation-flight.mp4) | 真实场地、外部视角与导航画面 |
+
+仿真视频保留 2026-11-06 15:41 的原始录屏，展示 Gazebo 与 RViz。视频为独立演示航次，技术报告中的定量结果来自另一次指定目标验证。
 
 ## 系统
 
@@ -56,7 +58,7 @@ config/          标定模板、样机示例、实机与仿真参数
 simulation/      Odin 传感器仿真与基础场景，不含实机驱动
 scripts/         构建、启动、依赖准备、录包和回放
 dependencies/    系统依赖、PX4 接口来源与仿真依赖
-assets/          实机照片和技术报告图表
+assets/          实机照片、仿真视频及封面
 ```
 
 部署操作集中在本页，架构、仿真参数与验证信息集中在 `docs/TECHNICAL_REPORT.pdf`。本地运行数据写入忽略目录，不随源码分发。保留上游版权与许可，见 [LICENSE](LICENSE) 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

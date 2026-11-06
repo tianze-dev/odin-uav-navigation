@@ -5,3 +5,4 @@ src/px4_msgs/msg/*.msg -text whitespace=-blank-at-eol,-blank-at-eof
 *.dae -text
 
 *.pdf binary
+*.mp4 binary
